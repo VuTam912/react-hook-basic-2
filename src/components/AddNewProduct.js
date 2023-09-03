@@ -15,8 +15,25 @@ const AddNewProduct = () => {
 			size: size,
 			color: color,
 		};
+		// add localStorage
+		// localStorage.setItem('productList', JSON.stringify(object));
+		// if there is a key in localStorage => save a new product in localStorage
+		let productlist = localStorage.getItem('productList');
+		if (productlist) {
+			let arr = JSON.parse(productlist);
+			arr.push(object);
+			localStorage.setItem('productList', JSON.stringify(arr));
+		} else {
+			// note : [] => add object to array
+			localStorage.setItem('productList', JSON.stringify([object]));
+		}
+		console.log('>>> check data: ', JSON.parse(productlist));
 
-		console.log('>>> check data: ', object);
+		// set all input = ""
+		setName('');
+		setPrice('');
+		setSize('');
+		setColor('');
 	};
 
 	const handleHideShow = (status) => {
@@ -83,6 +100,11 @@ const AddNewProduct = () => {
 					Show this form
 				</div>
 			)}
+			<div>
+				{/* show all data of localStorage  */}
+				List products:
+				<div>{localStorage.getItem('productList')}</div>
+			</div>
 		</div>
 	);
 };
