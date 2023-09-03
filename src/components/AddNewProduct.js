@@ -2,11 +2,11 @@ import { useState } from 'react';
 
 const AddNewProduct = () => {
 	const [name, setName] = useState('');
-	const [price, setPrice] = useState('');
-	const [size, setSize] = useState('');
+	const [price, setPrice] = useState(0);
+	const [size, setSize] = useState(0);
 	const [color, setColor] = useState('');
 
-	const [isShowDetail, setIsShowDetail] = useState(true);
+	const [isShowDetail, setIsShowDetail] = useState(false);
 
 	const handleClickBtn = () => {
 		let object = {
@@ -29,10 +29,10 @@ const AddNewProduct = () => {
 		}
 		console.log('>>> check data: ', JSON.parse(productlist));
 
-		// set all input = ""
+		// set all input = "" or 0
 		setName('');
-		setPrice('');
-		setSize('');
+		setPrice(0);
+		setSize(0);
 		setColor('');
 	};
 
@@ -43,7 +43,7 @@ const AddNewProduct = () => {
 
 	return (
 		<div>
-			<fieldset>
+			<fieldset style={{ display: isShowDetail ? 'block' : 'none' }}>
 				<legend>Add a new Product</legend>
 				<div className='input-product'>
 					<label>Name: </label>
@@ -82,23 +82,20 @@ const AddNewProduct = () => {
 				</div>
 			</fieldset>
 			{/* neu la true => show <div>..</div> */}
-			{isShowDetail === true && (
-				<div
-					onClick={() => {
-						handleHideShow(false);
-					}}
+			{isShowDetail === true ? (
+				<button
+					onClick={() => handleHideShow(false)}
+					style={{ cursor: 'pointer' }}
 				>
 					Hide this form
-				</div>
-			)}
-			{isShowDetail === false && (
-				<div
-					onClick={() => {
-						handleHideShow(true);
-					}}
+				</button>
+			) : (
+				<button
+					onClick={() => handleHideShow(true)}
+					style={{ cursor: 'pointer' }}
 				>
 					Show this form
-				</div>
+				</button>
 			)}
 			<div>
 				{/* show all data of localStorage  */}

@@ -4,19 +4,21 @@
     font-size       : 14px;
     background-color: #282c34;
     display         : flex;
-    height          : calc(100vh - 80px);
+    // height          : calc(100vh - 80px);
+    height: auto;
+
     
     .content-left {
-        width       : 50%;
+        width       : 20%;
         padding     : 10px;
         /* border   : 1px solid green; */
-        border-right: 1px solid gray;
+        // border-right: 1px solid gray;
       }
       
       .content-right {
-        width     : 50%;
+        width     : 80%;
         padding   : 10px;
-        /* border : 1px solid red; */
+        // border : 1px solid red; 
         color     : white;
       }
   }
@@ -41,6 +43,11 @@
     /* justify-content                : center; */
     font-size                         : calc(10px + 2vmin);
     color                             : white;
+
+    span {
+      color:red;
+      font-size: 18px;
+    }
   }
   
   .App-link {
@@ -78,3 +85,4 @@
   button {
     cursor: pointer;
   }
+

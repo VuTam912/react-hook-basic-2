@@ -18,7 +18,7 @@ const Home = () => {
 		return Math.floor(Math.random() * (max - min + 1) + min);
 	};
 
-	console.log('>>', listTodo);
+	// console.log('>>', listTodo);
 
 	// add new todo
 	const handleClickBtn = () => {
