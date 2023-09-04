@@ -5,6 +5,8 @@ import AddNewProduct from './components/AddNewProduct';
 import Product from './components/Products/Product';
 import Nav from './components/Navigation/Nav';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Weather from './components/Weather/Weather';
+import OTP from './components/OTP/OTP';
 
 function App() {
 	return (
@@ -34,10 +36,13 @@ function App() {
 					<Product />
 				</Route>
 				<Route path='/weather'>
-					<div>Weather App</div>
+					<Weather />
 				</Route>
 				<Route path='/about'>
 					<div>About</div>
+				</Route>
+				<Route path='/otp'>
+					<OTP />
 				</Route>
 				<Route path='*'>
 					<div>

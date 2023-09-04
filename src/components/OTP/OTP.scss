@@ -1,0 +1,53 @@
+.otp-parent-container {
+    max-width: 70vw;
+    border: 1px solid red;
+    margin: 0 auto;
+    padding: 15px;
+
+    .generate-otp-container {
+        text-align: center;
+        margin: 20px 0;
+
+        button {
+            height: 28px;
+        }
+        .title {
+            font-size: 18px;
+            font-weight: 600;
+            padding-top: 15px;
+        }
+    }
+
+    .input-otp-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap:15px;
+        width: 700px;
+        margin: 0 auto;
+        border: 1px solid #d6d6d6;
+        padding: 10px 0;
+        border-radius: 5px;
+
+        .title {
+            font-weight: 600;
+            font-size: 24px;
+        }
+
+        .input-customize {
+            width: 2em !important;
+            height: 2em;
+            margin: 0 1rem;
+            font-size: 2rem;
+            border-radius: 4px;
+            border: 1px solid rgba(0,0,0,0.3);
+        }
+        .action {
+            button {
+                height: 28px;
+                margin-right: 20px;
+            }
+        }
+    }
+}
