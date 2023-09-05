@@ -7,6 +7,7 @@ import Nav from './components/Navigation/Nav';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Weather from './components/Weather/Weather';
 import OTP from './components/OTP/OTP';
+import WeatherByLocation from './components/Weather/WeatherByLocation';
 
 function App() {
 	return (
@@ -35,7 +36,8 @@ function App() {
 				<Route path='/product'>
 					<Product />
 				</Route>
-				<Route path='/weather'>
+				{/* exact ap dụng cho với đương link URL cần có tham số - weather cha */}
+				<Route path='/weather' exact>
 					<Weather />
 				</Route>
 				<Route path='/about'>
@@ -43,6 +45,10 @@ function App() {
 				</Route>
 				<Route path='/otp'>
 					<OTP />
+				</Route>
+				{/* weather con */}
+				<Route path='/weather/detail/:woeid'>
+					<WeatherByLocation />
 				</Route>
 				<Route path='*'>
 					<div>

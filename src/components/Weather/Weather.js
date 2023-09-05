@@ -1,6 +1,7 @@
 import React, { Component, useEffect, useState } from 'react';
 import axios from 'axios';
-
+import Search from './Search';
+import './Weather.scss';
 // Fucntion
 const Weather = () => {
 	const [title, setTitle] = useState('');
@@ -18,8 +19,11 @@ const Weather = () => {
 		}, 3000);
 	}, []);
 
-	console.log('>> 1 run render');
-	return <div> Inside weather component: title = {title}</div>;
+	return (
+		<div className='weather-app-container'>
+			<Search />
+		</div>
+	);
 };
 
 export default Weather;
