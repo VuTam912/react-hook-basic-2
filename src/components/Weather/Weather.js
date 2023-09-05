@@ -2,6 +2,7 @@ import React, { Component, useEffect, useState } from 'react';
 import axios from 'axios';
 import Search from './Search';
 import './Weather.scss';
+// Khong su dụng duoc do thiếu API
 // Fucntion
 const Weather = () => {
 	const [title, setTitle] = useState('');

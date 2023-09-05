@@ -2,6 +2,7 @@ import { useState } from 'react';
 import GenerateOTP from './GenerateOTP';
 import InputOTP from './inputOTP';
 import './OTP.scss';
+
 const OTP = () => {
 	// 2 state nay se chuyen den 2 components duoi va nhan duoc setState.
 	const [orgOTPParent, setOrgOTPParent] = useState('');
