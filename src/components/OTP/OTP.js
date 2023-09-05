@@ -12,6 +12,17 @@ const OTP = () => {
 
 	// khi nhan duoc call tu child thi se execute => xu ly OTP
 	const handleSubmitOTP = () => {
+		// orgOTPParent or useOTPParent còn sử dụng để check OTP có empty ko ?
+		if (!orgOTPParent) {
+			alert('Please generate an OTP...');
+			return;
+		}
+
+		if (!userOTPParent) {
+			alert('Please enter an OTP...');
+			return;
+		}
+
 		// + => string to integer
 		if (+orgOTPParent === +userOTPParent) {
 			alert('Corret OTP ^^');

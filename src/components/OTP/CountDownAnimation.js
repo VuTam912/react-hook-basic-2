@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { forwardRef, useState, useEffect, useImperativeHandle } from 'react';
 import './CountDownAnimation.scss';
+import { info } from 'sass';
 
-const CountDownAnimation = (props) => {
-	const [timeLeft, setTimeLeft] = useState(20);
+const CountDownAnimation = forwardRef((props, ref) => {
 	const TIME_LIMIT = 20;
+	const [timeLeft, setTimeLeft] = useState(TIME_LIMIT);
 
 	const FULL_DASH_ARRAY = 283;
 	const WARNING_THRESHOLD = 10;
@@ -23,8 +24,6 @@ const CountDownAnimation = (props) => {
 		},
 	};
 
-	let timePassed = 0;
-	let timerInterval = null;
 	let remainingPathColor = COLOR_CODES.info.color;
 
 	const formatTime = (time) => {
@@ -90,6 +89,23 @@ const CountDownAnimation = (props) => {
 		};
 	}, [timeLeft]);
 
+	// nhận được call của cha và con sẽ sử dụng hàm thưc thi.
+	useImperativeHandle(ref, () => ({
+		restTimer() {
+			const { alert, warning, info } = COLOR_CODES;
+			document
+				.getElementById('base-timer-path-remaining')
+				.classList.remove(alert.color);
+			document
+				.getElementById('base-timer-path-remaining')
+				.classList.remove(warning.color);
+			document
+				.getElementById('base-timer-path-remaining')
+				.classList.add(info.color); // add color
+			setTimeLeft(TIME_LIMIT);
+		},
+	}));
+
 	return (
 		<div className='count-down-animation-container'>
 			<div className='base-timer'>
@@ -124,6 +140,6 @@ const CountDownAnimation = (props) => {
 			</div>
 		</div>
 	);
-};
+});
 
 export default CountDownAnimation;
